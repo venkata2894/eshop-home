@@ -12,38 +12,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 50%, #81d4fa 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
             min-height: 100vh;
+            background-attachment: fixed;
         }
         
-        /* Glassmorphism Effect */
+        /* Enhanced Glassmorphism Effect */
         .glass {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
         }
         
         .glass-dark {
-            background: rgba(3, 169, 244, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(3, 169, 244, 0.2);
-            box-shadow: 0 8px 32px rgba(3, 169, 244, 0.1);
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
         }
         
-        /* Animations */
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -54,7 +55,7 @@
         @keyframes slideInLeft {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
+                transform: translateX(-60px);
             }
             to {
                 opacity: 1;
@@ -65,7 +66,7 @@
         @keyframes slideInRight {
             from {
                 opacity: 0;
-                transform: translateX(50px);
+                transform: translateX(60px);
             }
             to {
                 opacity: 1;
@@ -74,13 +75,15 @@
         }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-15px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-1deg); }
         }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
         }
         
         @keyframes shimmer {
@@ -88,24 +91,33 @@
             100% { transform: translateX(100%); }
         }
         
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
         .animate-fadeInUp {
-            animation: fadeInUp 0.6s ease-out;
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .animate-slideInLeft {
-            animation: slideInLeft 0.8s ease-out;
+            animation: slideInLeft 1s ease-out;
         }
         
         .animate-slideInRight {
-            animation: slideInRight 0.8s ease-out;
+            animation: slideInRight 1s ease-out;
         }
         
         .animate-float {
-            animation: float 3s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
         }
         
         .animate-pulse-custom {
-            animation: pulse 2s ease-in-out infinite;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
         }
         
         .shimmer-effect {
@@ -120,22 +132,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: shimmer 2s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: shimmer 3s infinite;
         }
         
-        /* Hover Effects */
+        /* Enhanced Hover Effects */
         .card-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(3, 169, 244, 0.3);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
         }
         
         .button-hover {
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
@@ -147,8 +159,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
         }
         
         .button-hover:hover::before {
@@ -156,23 +168,30 @@
         }
         
         .button-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(3, 169, 244, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.5);
         }
         
-        /* Gradient Text */
+        /* Enhanced Gradient Text */
         .gradient-text {
-            background: linear-gradient(135deg, #03a9f4, #0288d1, #0277bd);
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            background-size: 300% 300%;
+            animation: gradientShift 3s ease infinite;
         }
         
-        /* Scroll Animations */
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Enhanced Scroll Animations */
         .scroll-fade {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
         }
         
         .scroll-fade.visible {
@@ -180,64 +199,97 @@
             transform: translateY(0);
         }
         
-        /* Custom Scrollbar */
+        /* Enhanced Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 12px;
         }
         
         ::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #03a9f4, #0288d1);
-            border-radius: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 6px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #0288d1, #0277bd);
+            background: linear-gradient(135deg, #764ba2, #f093fb);
         }
         
-        /* Navbar Enhancement */
+        /* Enhanced Navbar */
         .navbar-glass {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(3, 169, 244, 0.2);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
         }
         
-        /* Product Card Enhancements */
+        /* Enhanced Product Card */
         .product-card {
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 20px;
         }
         
         .product-card:hover {
-            transform: translateY(-8px) rotateY(2deg);
-            box-shadow: 0 25px 50px rgba(3, 169, 244, 0.25);
+            transform: translateY(-12px) rotateY(3deg);
+            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
         }
         
         .product-image {
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            border-radius: 20px 20px 0 0;
         }
         
         .product-card:hover .product-image {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
         
-        /* Loading Animation */
+        /* Enhanced Loading Animation */
         .loading-dots {
             display: inline-block;
         }
         
         .loading-dots::after {
             content: '...';
-            animation: dots 1.5s steps(4, end) infinite;
+            animation: dots 2s steps(4, end) infinite;
         }
         
         @keyframes dots {
             0%, 20% { color: transparent; text-shadow: .25em 0 0 transparent, .5em 0 0 transparent; }
-            40% { color: #03a9f4; text-shadow: .25em 0 0 transparent, .5em 0 0 transparent; }
-            60% { text-shadow: .25em 0 0 #03a9f4, .5em 0 0 transparent; }
-            80%, 100% { text-shadow: .25em 0 0 #03a9f4, .5em 0 0 #03a9f4; }
+            40% { color: #667eea; text-shadow: .25em 0 0 transparent, .5em 0 0 transparent; }
+            60% { text-shadow: .25em 0 0 #667eea, .5em 0 0 transparent; }
+            80%, 100% { text-shadow: .25em 0 0 #667eea, .5em 0 0 #667eea; }
+        }
+        
+        /* Enhanced Table Styles */
+        .table-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .table-row-hover:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+        
+        /* Enhanced Form Styles */
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
         }
     </style>
 </head>
@@ -245,28 +297,40 @@
 <body class="overflow-x-hidden">
     <!-- Enhanced Navbar -->
     <nav class="fixed top-0 w-full z-50 navbar-glass transition-all duration-300">
-        <div class="container mx-auto px-4 py-3">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2 animate-slideInLeft">
-                    <div class="w-10 h-10 bg-gradient-to-br from-sky-400 to-blue-600 rounded-lg flex items-center justify-center animate-float">
-                        <i class="fas fa-gem text-white text-xl"></i>
+                <div class="flex items-center space-x-3 animate-slideInLeft">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-xl flex items-center justify-center animate-float animate-glow">
+                        <i class="fas fa-gem text-white text-2xl"></i>
                     </div>
-                    <span class="text-2xl font-bold gradient-text">eShop</span>
+                    <span class="text-3xl font-bold gradient-text">eShop</span>
                 </div>
                 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-sky-600 transition-colors duration-300 font-medium">Home</a>
-                    <a href="#products" class="text-gray-700 hover:text-sky-600 transition-colors duration-300 font-medium">Products</a>
-                    <a href="#features" class="text-gray-700 hover:text-sky-600 transition-colors duration-300 font-medium">Features</a>
-                    <a href="#contact" class="text-gray-700 hover:text-sky-600 transition-colors duration-300 font-medium">Contact</a>
+                <div class="hidden md:flex space-x-10">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition-all duration-300 font-semibold relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#products" class="text-gray-700 hover:text-purple-600 transition-all duration-300 font-semibold relative group">
+                        Products
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition-all duration-300 font-semibold relative group">
+                        Features
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-all duration-300 font-semibold relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </div>
                 
-                <div class="flex items-center space-x-4 animate-slideInRight">
+                <div class="flex items-center space-x-6 animate-slideInRight">
                     <div class="relative">
-                        <i class="fas fa-shopping-cart text-sky-600 text-xl cursor-pointer hover:text-sky-700 transition-colors duration-300"></i>
-                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse-custom">3</span>
+                        <i class="fas fa-shopping-cart text-purple-600 text-2xl cursor-pointer hover:text-pink-500 transition-all duration-300 hover:scale-110"></i>
+                        <span class="absolute -top-3 -right-3 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center animate-pulse-custom font-bold">3</span>
                     </div>
-                    <button class="md:hidden text-sky-600 text-xl">
+                    <button class="md:hidden text-purple-600 text-2xl hover:text-pink-500 transition-colors duration-300">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -275,72 +339,72 @@
     </nav>
 
     <!-- Enhanced Hero Section -->
-    <section id="home" class="pt-20 pb-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-12">
-                <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6 animate-fadeInUp">
-                    Welcome to <span class="text-sky-600">eShop</span>
+    <section id="home" class="pt-24 pb-20 px-4">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h1 class="text-6xl md:text-8xl font-bold gradient-text mb-8 animate-fadeInUp">
+                    Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">eShop</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-600 mb-8 animate-fadeInUp" style="animation-delay: 0.2s;">
+                <p class="text-2xl md:text-3xl text-white/90 mb-10 animate-fadeInUp font-light" style="animation-delay: 0.2s;">
                     Discover premium technology products with exceptional quality
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp" style="animation-delay: 0.4s;">
-                    <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold button-hover">
-                        <i class="fas fa-shopping-bag mr-2"></i>Shop Now
+                <div class="flex flex-col sm:flex-row gap-6 justify-center animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <button class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 text-white px-10 py-5 rounded-2xl font-bold text-lg button-hover shadow-2xl">
+                        <i class="fas fa-shopping-bag mr-3"></i>Shop Now
                     </button>
-                    <button class="glass text-sky-600 px-8 py-4 rounded-xl font-semibold button-hover">
-                        <i class="fas fa-play mr-2"></i>Watch Demo
+                    <button class="glass text-white px-10 py-5 rounded-2xl font-bold text-lg button-hover shadow-2xl border-2 border-white/20">
+                        <i class="fas fa-play mr-3"></i>Watch Demo
                     </button>
                 </div>
             </div>
             
             <!-- Feature Cards -->
-            <div class="grid md:grid-cols-3 gap-8 mt-16">
-                <div class="glass-dark rounded-2xl p-8 text-center card-hover scroll-fade">
-                    <div class="w-16 h-16 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-float">
-                        <i class="fas fa-rocket text-white text-2xl"></i>
+            <div class="grid md:grid-cols-3 gap-10 mt-20">
+                <div class="glass-dark rounded-3xl p-10 text-center card-hover scroll-fade">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float animate-glow">
+                        <i class="fas fa-rocket text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Fast Delivery</h3>
-                    <p class="text-gray-600">Lightning-fast shipping to your doorstep</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Fast Delivery</h3>
+                    <p class="text-white/80 text-lg">Lightning-fast shipping to your doorstep</p>
                 </div>
                 
-                <div class="glass-dark rounded-2xl p-8 text-center card-hover scroll-fade" style="animation-delay: 0.2s;">
-                    <div class="w-16 h-16 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-float" style="animation-delay: 1s;">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                <div class="glass-dark rounded-3xl p-10 text-center card-hover scroll-fade" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float animate-glow" style="animation-delay: 1s;">
+                        <i class="fas fa-shield-alt text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Premium Quality</h3>
-                    <p class="text-gray-600">Only the finest technology products</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">Premium Quality</h3>
+                    <p class="text-white/80 text-lg">Only the finest technology products</p>
                 </div>
                 
-                <div class="glass-dark rounded-2xl p-8 text-center card-hover scroll-fade" style="animation-delay: 0.4s;">
-                    <div class="w-16 h-16 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-float" style="animation-delay: 2s;">
-                        <i class="fas fa-headset text-white text-2xl"></i>
+                <div class="glass-dark rounded-3xl p-10 text-center card-hover scroll-fade" style="animation-delay: 0.4s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float animate-glow" style="animation-delay: 2s;">
+                        <i class="fas fa-headset text-white text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">24/7 Support</h3>
-                    <p class="text-gray-600">Expert assistance whenever you need it</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">24/7 Support</h3>
+                    <p class="text-white/80 text-lg">Expert assistance whenever you need it</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Enhanced Product Carousel -->
-    <section class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold gradient-text mb-4 scroll-fade">Featured Collections</h2>
-                <p class="text-xl text-gray-600 scroll-fade">Explore our handpicked selection of premium products</p>
+    <section class="py-20 px-4">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold gradient-text mb-6 scroll-fade">Featured Collections</h2>
+                <p class="text-2xl text-white/90 scroll-fade font-light">Explore our handpicked selection of premium products</p>
             </div>
             
-            <div class="relative glass-dark rounded-3xl p-8 scroll-fade">
-                <div class="carousel-container overflow-hidden rounded-2xl">
+            <div class="relative glass-dark rounded-3xl p-10 scroll-fade shadow-2xl">
+                <div class="carousel-container overflow-hidden rounded-3xl">
                     <div class="carousel-track flex transition-transform duration-700 ease-in-out" id="carousel">
                         <div class="carousel-slide min-w-full relative">
-                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop" alt="Smartphones" class="w-full h-96 object-cover rounded-2xl">
-                            <div class="absolute inset-0 bg-gradient-to-r from-sky-900/70 to-transparent rounded-2xl flex items-center">
-                                <div class="text-white p-8 max-w-md">
-                                    <h3 class="text-3xl font-bold mb-4">Latest Smartphones</h3>
-                                    <p class="text-xl mb-6">Cutting-edge technology at your fingertips</p>
-                                    <button class="bg-white text-sky-600 px-6 py-3 rounded-lg font-semibold button-hover">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop" alt="Smartphones" class="w-full h-[500px] object-cover rounded-3xl">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-pink-900/60 to-transparent rounded-3xl flex items-center">
+                                <div class="text-white p-12 max-w-lg">
+                                    <h3 class="text-5xl font-bold mb-6">Latest Smartphones</h3>
+                                    <p class="text-2xl mb-8 text-white/90">Cutting-edge technology at your fingertips</p>
+                                    <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-bold text-lg button-hover shadow-2xl">
                                         Explore Collection
                                     </button>
                                 </div>
@@ -348,12 +412,12 @@
                         </div>
                         
                         <div class="carousel-slide min-w-full relative">
-                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&h=600&fit=crop" alt="Laptops" class="w-full h-96 object-cover rounded-2xl">
-                            <div class="absolute inset-0 bg-gradient-to-r from-sky-900/70 to-transparent rounded-2xl flex items-center">
-                                <div class="text-white p-8 max-w-md">
-                                    <h3 class="text-3xl font-bold mb-4">Premium Laptops</h3>
-                                    <p class="text-xl mb-6">Power and performance for professionals</p>
-                                    <button class="bg-white text-sky-600 px-6 py-3 rounded-lg font-semibold button-hover">
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&h=600&fit=crop" alt="Laptops" class="w-full h-[500px] object-cover rounded-3xl">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-pink-900/60 to-transparent rounded-3xl flex items-center">
+                                <div class="text-white p-12 max-w-lg">
+                                    <h3 class="text-5xl font-bold mb-6">Premium Laptops</h3>
+                                    <p class="text-2xl mb-8 text-white/90">Power and performance for professionals</p>
+                                    <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-bold text-lg button-hover shadow-2xl">
                                         Explore Collection
                                     </button>
                                 </div>
@@ -361,12 +425,12 @@
                         </div>
                         
                         <div class="carousel-slide min-w-full relative">
-                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1200&h=600&fit=crop" alt="Headphones" class="w-full h-96 object-cover rounded-2xl">
-                            <div class="absolute inset-0 bg-gradient-to-r from-sky-900/70 to-transparent rounded-2xl flex items-center">
-                                <div class="text-white p-8 max-w-md">
-                                    <h3 class="text-3xl font-bold mb-4">Audio Excellence</h3>
-                                    <p class="text-xl mb-6">Immersive sound experiences</p>
-                                    <button class="bg-white text-sky-600 px-6 py-3 rounded-lg font-semibold button-hover">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1200&h=600&fit=crop" alt="Headphones" class="w-full h-[500px] object-cover rounded-3xl">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-pink-900/60 to-transparent rounded-3xl flex items-center">
+                                <div class="text-white p-12 max-w-lg">
+                                    <h3 class="text-5xl font-bold mb-6">Audio Excellence</h3>
+                                    <p class="text-2xl mb-8 text-white/90">Immersive sound experiences</p>
+                                    <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-bold text-lg button-hover shadow-2xl">
                                         Explore Collection
                                     </button>
                                 </div>
@@ -376,129 +440,129 @@
                 </div>
                 
                 <!-- Carousel Controls -->
-                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300" onclick="prevSlide()">
-                    <i class="fas fa-chevron-left"></i>
+                <button class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110" onclick="prevSlide()">
+                    <i class="fas fa-chevron-left text-xl"></i>
                 </button>
-                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300" onclick="nextSlide()">
-                    <i class="fas fa-chevron-right"></i>
+                <button class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-4 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right text-xl"></i>
                 </button>
                 
                 <!-- Carousel Indicators -->
-                <div class="flex justify-center mt-6 space-x-2">
-                    <button class="w-3 h-3 rounded-full bg-sky-400 carousel-indicator active" onclick="goToSlide(0)"></button>
-                    <button class="w-3 h-3 rounded-full bg-white/50 carousel-indicator" onclick="goToSlide(1)"></button>
-                    <button class="w-3 h-3 rounded-full bg-white/50 carousel-indicator" onclick="goToSlide(2)"></button>
+                <div class="flex justify-center mt-8 space-x-3">
+                    <button class="w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 carousel-indicator active shadow-lg" onclick="goToSlide(0)"></button>
+                    <button class="w-4 h-4 rounded-full bg-white/50 carousel-indicator shadow-lg" onclick="goToSlide(1)"></button>
+                    <button class="w-4 h-4 rounded-full bg-white/50 carousel-indicator shadow-lg" onclick="goToSlide(2)"></button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Enhanced Products Section -->
-    <section id="products" class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold gradient-text mb-4 scroll-fade">Trending Products</h2>
-                <p class="text-xl text-gray-600 scroll-fade">Discover what's popular right now</p>
+    <section id="products" class="py-20 px-4">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold gradient-text mb-6 scroll-fade">Trending Products</h2>
+                <p class="text-2xl text-white/90 scroll-fade font-light">Discover what's popular right now</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-dark rounded-2xl overflow-hidden product-card scroll-fade">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="glass-dark rounded-3xl overflow-hidden product-card scroll-fade shadow-2xl">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop" alt="iPhone 15" class="w-full h-48 object-cover product-image">
-                        <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop" alt="iPhone 15" class="w-full h-56 object-cover product-image">
+                        <div class="absolute top-6 left-6 bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                             -20%
                         </div>
-                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full opacity-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
-                            <i class="fas fa-heart"></i>
+                        <div class="absolute top-6 right-6 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full opacity-0 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110">
+                            <i class="fas fa-heart text-lg"></i>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">iPhone 15 Pro</h3>
-                        <p class="text-gray-600 mb-4">Latest flagship with advanced features</p>
-                        <div class="flex items-center mb-4">
-                            <div class="flex text-yellow-400">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-3">iPhone 15 Pro</h3>
+                        <p class="text-white/80 mb-6 text-lg">Latest flagship with advanced features</p>
+                        <div class="flex items-center mb-6">
+                            <div class="flex text-yellow-400 text-xl">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <span class="text-gray-600 ml-2">(4.9)</span>
+                            <span class="text-white/80 ml-3 text-lg">(4.9)</span>
                         </div>
                         <div class="flex items-center justify-between">
                             <div>
-                                <span class="text-2xl font-bold gradient-text">$999</span>
-                                <span class="text-gray-500 line-through ml-2">$1,249</span>
+                                <span class="text-3xl font-bold gradient-text">$999</span>
+                                <span class="text-white/60 line-through ml-3 text-lg">$1,249</span>
                             </div>
-                            <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold button-hover">
+                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-2xl font-bold button-hover shadow-xl">
                                 <i class="fas fa-cart-plus mr-2"></i>Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="glass-dark rounded-2xl overflow-hidden product-card scroll-fade" style="animation-delay: 0.2s;">
+                <div class="glass-dark rounded-3xl overflow-hidden product-card scroll-fade shadow-2xl" style="animation-delay: 0.2s;">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop" alt="MacBook Pro" class="w-full h-48 object-cover product-image">
-                        <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=300&fit=crop" alt="MacBook Pro" class="w-full h-56 object-cover product-image">
+                        <div class="absolute top-6 left-6 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                             New
                         </div>
-                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full opacity-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
-                            <i class="fas fa-heart"></i>
+                        <div class="absolute top-6 right-6 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full opacity-0 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110">
+                            <i class="fas fa-heart text-lg"></i>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">MacBook Pro M3</h3>
-                        <p class="text-gray-600 mb-4">Ultimate performance for professionals</p>
-                        <div class="flex items-center mb-4">
-                            <div class="flex text-yellow-400">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-3">MacBook Pro M3</h3>
+                        <p class="text-white/80 mb-6 text-lg">Ultimate performance for professionals</p>
+                        <div class="flex items-center mb-6">
+                            <div class="flex text-yellow-400 text-xl">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <span class="text-gray-600 ml-2">(4.8)</span>
+                            <span class="text-white/80 ml-3 text-lg">(4.8)</span>
                         </div>
                         <div class="flex items-center justify-between">
                             <div>
-                                <span class="text-2xl font-bold gradient-text">$1,999</span>
+                                <span class="text-3xl font-bold gradient-text">$1,999</span>
                             </div>
-                            <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold button-hover">
+                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-2xl font-bold button-hover shadow-xl">
                                 <i class="fas fa-cart-plus mr-2"></i>Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="glass-dark rounded-2xl overflow-hidden product-card scroll-fade" style="animation-delay: 0.4s;">
+                <div class="glass-dark rounded-3xl overflow-hidden product-card scroll-fade shadow-2xl" style="animation-delay: 0.4s;">
                     <div class="relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=300&fit=crop" alt="AirPods Pro" class="w-full h-48 object-cover product-image">
-                        <div class="absolute top-4 left-4 bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=300&fit=crop" alt="AirPods Pro" class="w-full h-56 object-cover product-image">
+                        <div class="absolute top-6 left-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                             Popular
                         </div>
-                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white p-2 rounded-full opacity-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
-                            <i class="fas fa-heart"></i>
+                        <div class="absolute top-6 right-6 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full opacity-0 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110">
+                            <i class="fas fa-heart text-lg"></i>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">AirPods Pro</h3>
-                        <p class="text-gray-600 mb-4">Active noise cancellation excellence</p>
-                        <div class="flex items-center mb-4">
-                            <div class="flex text-yellow-400">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-3">AirPods Pro</h3>
+                        <p class="text-white/80 mb-6 text-lg">Active noise cancellation excellence</p>
+                        <div class="flex items-center mb-6">
+                            <div class="flex text-yellow-400 text-xl">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <span class="text-gray-600 ml-2">(4.7)</span>
+                            <span class="text-white/80 ml-3 text-lg">(4.7)</span>
                         </div>
                         <div class="flex items-center justify-between">
                             <div>
-                                <span class="text-2xl font-bold gradient-text">$249</span>
+                                <span class="text-3xl font-bold gradient-text">$249</span>
                             </div>
-                            <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold button-hover">
+                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-2xl font-bold button-hover shadow-xl">
                                 <i class="fas fa-cart-plus mr-2"></i>Add to Cart
                             </button>
                         </div>
@@ -506,104 +570,103 @@
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold button-hover shimmer-effect scroll-fade">
-                    <i class="fas fa-arrow-right mr-2"></i>View All Products
+            <div class="text-center mt-16">
+                <button class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 text-white px-12 py-5 rounded-2xl font-bold text-xl button-hover shimmer-effect scroll-fade shadow-2xl">
+                    <i class="fas fa-arrow-right mr-3"></i>View All Products
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Enhanced Features Section -->
-    <section id="features" class="py-16 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold gradient-text mb-4 scroll-fade">Why Choose eShop?</h2>
-                <p class="text-xl text-gray-600 scroll-fade">Experience the difference with our premium services</p>
+    <section id="features" class="py-20 px-4">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold gradient-text mb-6 scroll-fade">Why Choose eShop?</h2>
+                <p class="text-2xl text-white/90 scroll-fade font-light">Experience the difference with our premium services</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="glass-dark rounded-2xl p-8 text-center card-hover scroll-fade">
-                    <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-custom">
-                        <i class="fas fa-award text-white text-3xl"></i>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="glass-dark rounded-3xl p-10 text-center card-hover scroll-fade shadow-2xl">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-8 animate-pulse-custom animate-glow">
+                        <i class="fas fa-award text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Premium Quality</h3>
-                    <p class="text-gray-600">Only authentic products from trusted brands</p>
+                    <h3 class="text-2xl font-bold text-white mb-6">Premium Quality</h3>
+                    <p class="text-white/80 text-lg">Only authentic products from trusted brands</p>
                 </div>
                 
-                <div class="glass-dark rounded-2xl p-8 text-center card-hover scroll-fade" style="animation-delay: 0.2s;">
-                    <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-custom" style="animation-delay: 0.5s;">
-                        <i class="fas fa-shipping-fast text-white text-3xl"></i>
+                <div class="glass-dark rounded-3xl p-10 text-center card-hover scroll-fade shadow-2xl" style="animation-delay: 0.2s;">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-8 animate-pulse-custom animate-glow" style="animation-delay: 0.5s;">
+                        <i class="fas fa-shipping-fast text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Fast Delivery</h3>
-                    <p class="text-gray-600">Free shipping on orders over $100</p>
+                    <h3 class="text-2xl font-bold text-white mb-6">Fast Delivery</h3>
+                    <p class="text-white/80 text-lg">Free shipping on orders over $100</p>
                 </div>
                 
-                <div class="glass-dark rounded-2xl p-8 text-center card-hover scroll-fade" style="animation-delay: 0.4s;">
-                    <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-custom" style="animation-delay: 1s;">
-                        <i class="fas fa-undo text-white text-3xl"></i>
+                <div class="glass-dark rounded-3xl p-10 text-center card-hover scroll-fade shadow-2xl" style="animation-delay: 0.4s;">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-8 animate-pulse-custom animate-glow" style="animation-delay: 1s;">
+                        <i class="fas fa-undo text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Easy Returns</h3>
-                    <p class="text-gray-600">30-day hassle-free return policy</p>
+                    <h3 class="text-2xl font-bold text-white mb-6">Easy Returns</h3>
+                    <p class="text-white/80 text-lg">30-day hassle-free return policy</p>
                 </div>
                 
-                <div class="glass-dark rounded-2xl p-8 text-center card-hover scroll-fade" style="animation-delay: 0.6s;">
-                    <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-custom" style="animation-delay: 1.5s;">
-                        <i class="fas fa-lock text-white text-3xl"></i>
-                        <i class="fas fa-lock text-white text-3xl"></i>
+                <div class="glass-dark rounded-3xl p-10 text-center card-hover scroll-fade shadow-2xl" style="animation-delay: 0.6s;">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-8 animate-pulse-custom animate-glow" style="animation-delay: 1.5s;">
+                        <i class="fas fa-lock text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Secure Payments</h3>
-                    <p class="text-gray-600">Safe & encrypted checkout experience</p>
+                    <h3 class="text-2xl font-bold text-white mb-6">Secure Payments</h3>
+                    <p class="text-white/80 text-lg">Safe & encrypted checkout experience</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Product Catalog Section -->
-<section id="catalog" class="py-16 px-4">
-    <div class="container mx-auto max-w-6xl">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold gradient-text mb-4 scroll-fade">Complete Product Catalog</h2>
-            <p class="text-xl text-gray-600 scroll-fade">Browse our entire collection with detailed specifications</p>
+<section id="catalog" class="py-20 px-4">
+    <div class="container mx-auto max-w-7xl">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold gradient-text mb-6 scroll-fade">Complete Product Catalog</h2>
+            <p class="text-2xl text-white/90 scroll-fade font-light">Browse our entire collection with detailed specifications</p>
         </div>
 
         <!-- Product Table -->
-        <div class="glass-dark rounded-2xl p-6 overflow-x-auto scroll-fade">
+        <div class="table-glass rounded-3xl p-8 overflow-x-auto scroll-fade shadow-2xl">
             <table class="w-full min-w-[800px]">
                 <thead>
-                    <tr class="text-left border-b border-gray-200">
-                        <th class="py-4 px-4 text-sky-600">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-box"></i>
+                    <tr class="text-left border-b border-white/20">
+                        <th class="py-6 px-6 text-purple-300 font-bold text-lg">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-box text-2xl"></i>
                                 <span>Product</span>
                             </div>
                         </th>
-                        <th class="py-4 px-4 text-sky-600">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-tag"></i>
+                        <th class="py-6 px-6 text-purple-300 font-bold text-lg">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-tag text-2xl"></i>
                                 <span>Category</span>
                             </div>
                         </th>
-                        <th class="py-4 px-4 text-sky-600">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-dollar-sign"></i>
+                        <th class="py-6 px-6 text-purple-300 font-bold text-lg">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-dollar-sign text-2xl"></i>
                                 <span>Price</span>
                             </div>
                         </th>
-                        <th class="py-4 px-4 text-sky-600">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-star"></i>
+                        <th class="py-6 px-6 text-purple-300 font-bold text-lg">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-star text-2xl"></i>
                                 <span>Rating</span>
                             </div>
                         </th>
-                        <th class="py-4 px-4 text-sky-600">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-box-open"></i>
+                        <th class="py-6 px-6 text-purple-300 font-bold text-lg">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-box-open text-2xl"></i>
                                 <span>Stock</span>
                             </div>
                         </th>
-                        <th class="py-4 px-4 text-sky-600">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-shopping-cart"></i>
+                        <th class="py-6 px-6 text-purple-300 font-bold text-lg">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-shopping-cart text-2xl"></i>
                                 <span>Action</span>
                             </div>
                         </th>
@@ -611,111 +674,111 @@
                 </thead>
                 <tbody>
                     <!-- Product Row 1 -->
-                    <tr class="border-b border-gray-200 hover:bg-sky-50/30 transition-colors">
-                        <td class="py-4 px-4">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white text-xl">
+                    <tr class="border-b border-white/10 table-row-hover">
+                        <td class="py-6 px-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
                                     H
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-gray-800">Premium Gaming Headset</div>
-                                    <div class="text-sm text-gray-600">7.1 Surround Sound</div>
+                                    <div class="font-bold text-white text-lg">Premium Gaming Headset</div>
+                                    <div class="text-white/70 text-base">7.1 Surround Sound</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="py-4 px-4 text-gray-600">Gaming</td>
-                        <td class="py-4 px-4 text-sky-600 font-semibold">$89.99</td>
-                        <td class="py-4 px-4">
+                        <td class="py-6 px-6 text-white/80 text-lg">Gaming</td>
+                        <td class="py-6 px-6 text-purple-300 font-bold text-xl">$89.99</td>
+                        <td class="py-6 px-6">
                             <div class="flex items-center">
-                                <div class="flex text-yellow-400">
+                                <div class="flex text-yellow-400 text-xl">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star-half-alt"></i>
                                 </div>
-                                <span class="ml-2 text-gray-600">(4.8)</span>
+                                <span class="ml-3 text-white/80 text-lg">(4.8)</span>
                             </div>
                         </td>
-                        <td class="py-4 px-4">
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">In Stock</span>
+                        <td class="py-6 px-6">
+                            <span class="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full text-sm font-bold shadow-lg">In Stock</span>
                         </td>
-                        <td class="py-4 px-4">
-                            <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-4 py-2 rounded-lg font-medium button-hover">
+                        <td class="py-6 px-6">
+                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-2xl font-bold button-hover shadow-xl">
                                 <i class="fas fa-cart-plus mr-2"></i>Add
                             </button>
                         </td>
                     </tr>
 
                     <!-- Product Row 2 -->
-                    <tr class="border-b border-gray-200 hover:bg-sky-50/30 transition-colors">
-                        <td class="py-4 px-4">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center text-white text-xl">
+                    <tr class="border-b border-white/10 table-row-hover">
+                        <td class="py-6 px-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
                                     C
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-gray-800">Fast Wireless Charger</div>
-                                    <div class="text-sm text-gray-600">15W Fast Charging</div>
+                                    <div class="font-bold text-white text-lg">Fast Wireless Charger</div>
+                                    <div class="text-white/70 text-base">15W Fast Charging</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="py-4 px-4 text-gray-600">Accessories</td>
-                        <td class="py-4 px-4 text-sky-600 font-semibold">$34.99</td>
-                        <td class="py-4 px-4">
+                        <td class="py-6 px-6 text-white/80 text-lg">Accessories</td>
+                        <td class="py-6 px-6 text-purple-300 font-bold text-xl">$34.99</td>
+                        <td class="py-6 px-6">
                             <div class="flex items-center">
-                                <div class="flex text-yellow-400">
+                                <div class="flex text-yellow-400 text-xl">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="far fa-star"></i>
                                 </div>
-                                <span class="ml-2 text-gray-600">(4.3)</span>
+                                <span class="ml-3 text-white/80 text-lg">(4.3)</span>
                             </div>
                         </td>
-                        <td class="py-4 px-4">
-                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">In Stock</span>
+                        <td class="py-6 px-6">
+                            <span class="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full text-sm font-bold shadow-lg">In Stock</span>
                         </td>
-                        <td class="py-4 px-4">
-                            <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-4 py-2 rounded-lg font-medium button-hover">
+                        <td class="py-6 px-6">
+                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-2xl font-bold button-hover shadow-xl">
                                 <i class="fas fa-cart-plus mr-2"></i>Add
                             </button>
                         </td>
                     </tr>
 
                     <!-- Product Row 3 -->
-                    <tr class="border-b border-gray-200 hover:bg-sky-50/30 transition-colors">
-                        <td class="py-4 px-4">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white text-xl">
+                    <tr class="border-b border-white/10 table-row-hover">
+                        <td class="py-6 px-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
                                     W
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-gray-800">Fitness Smart Watch</div>
-                                    <div class="text-sm text-gray-600">Health Monitoring</div>
+                                    <div class="font-bold text-white text-lg">Fitness Smart Watch</div>
+                                    <div class="text-white/70 text-base">Health Monitoring</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="py-4 px-4 text-gray-600">Wearables</td>
-                        <td class="py-4 px-4 text-sky-600 font-semibold">$199.99</td>
-                        <td class="py-4 px-4">
+                        <td class="py-6 px-6 text-white/80 text-lg">Wearables</td>
+                        <td class="py-6 px-6 text-purple-300 font-bold text-xl">$199.99</td>
+                        <td class="py-6 px-6">
                             <div class="flex items-center">
-                                <div class="flex text-yellow-400">
+                                <div class="flex text-yellow-400 text-xl">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <span class="ml-2 text-gray-600">(4.9)</span>
+                                <span class="ml-3 text-white/80 text-lg">(4.9)</span>
                             </div>
                         </td>
-                        <td class="py-4 px-4">
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Low Stock</span>
+                        <td class="py-6 px-6">
+                            <span class="px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full text-sm font-bold shadow-lg">Low Stock</span>
                         </td>
-                        <td class="py-4 px-4">
-                            <button class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-4 py-2 rounded-lg font-medium button-hover">
+                        <td class="py-6 px-6">
+                            <button class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-2xl font-bold button-hover shadow-xl">
                                 <i class="fas fa-cart-plus mr-2"></i>Add
                             </button>
                         </td>
@@ -725,33 +788,33 @@
         </div>
 
         <!-- Pagination -->
-        <div class="flex justify-center items-center space-x-2 mt-8">
-            <button class="px-4 py-2 bg-white rounded-lg text-sky-600 hover:bg-sky-50 transition-colors">
+        <div class="flex justify-center items-center space-x-4 mt-12">
+            <button class="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl text-white hover:bg-white/20 transition-all duration-300 font-bold">
                 <i class="fas fa-chevron-left mr-2"></i>Previous
             </button>
-            <button class="w-10 h-10 bg-sky-600 text-white rounded-lg">1</button>
-            <button class="w-10 h-10 bg-white text-gray-600 rounded-lg hover:bg-sky-50 transition-colors">2</button>
-            <button class="w-10 h-10 bg-white text-gray-600 rounded-lg hover:bg-sky-50 transition-colors">3</button>
-            <span class="text-gray-600">...</span>
-            <button class="w-10 h-10 bg-white text-gray-600 rounded-lg hover:bg-sky-50 transition-colors">10</button>
-            <button class="px-4 py-2 bg-white rounded-lg text-sky-600 hover:bg-sky-50 transition-colors">
+            <button class="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold shadow-lg">1</button>
+            <button class="w-12 h-12 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-all duration-300 font-bold">2</button>
+            <button class="w-12 h-12 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-all duration-300 font-bold">3</button>
+            <span class="text-white/60 text-xl">...</span>
+            <button class="w-12 h-12 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-all duration-300 font-bold">10</button>
+            <button class="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl text-white hover:bg-white/20 transition-all duration-300 font-bold">
                 Next<i class="fas fa-chevron-right ml-2"></i>
             </button>
         </div>
     </div>
 </section>
     <!-- Contact Section -->
-    <section id="contact" class="py-16 px-4">
-        <div class="container mx-auto max-w-3xl">
-            <div class="glass-dark rounded-2xl p-10 text-center card-hover scroll-fade">
-                <h2 class="text-4xl font-bold gradient-text mb-4">Contact Us</h2>
-                <p class="text-xl text-gray-600 mb-8">Have questions? Reach out to our team anytime.</p>
-                <form class="space-y-6">
-                    <input type="text" placeholder="Your Name" class="w-full px-5 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-400" required>
-                    <input type="email" placeholder="Your Email" class="w-full px-5 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-400" required>
-                    <textarea placeholder="Your Message" class="w-full px-5 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-400" rows="4" required></textarea>
-                    <button type="submit" class="bg-gradient-to-r from-sky-400 to-blue-600 text-white px-8 py-3 rounded-xl font-semibold button-hover shimmer-effect">
-                        <i class="fas fa-paper-plane mr-2"></i>Send Message
+    <section id="contact" class="py-20 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="glass-dark rounded-3xl p-12 text-center card-hover scroll-fade shadow-2xl">
+                <h2 class="text-5xl font-bold gradient-text mb-6">Contact Us</h2>
+                <p class="text-2xl text-white/90 mb-10 font-light">Have questions? Reach out to our team anytime.</p>
+                <form class="space-y-8">
+                    <input type="text" placeholder="Your Name" class="form-input w-full px-8 py-4 rounded-2xl text-white placeholder-white/60 text-lg font-medium" required>
+                    <input type="email" placeholder="Your Email" class="form-input w-full px-8 py-4 rounded-2xl text-white placeholder-white/60 text-lg font-medium" required>
+                    <textarea placeholder="Your Message" class="form-input w-full px-8 py-4 rounded-2xl text-white placeholder-white/60 text-lg font-medium" rows="5" required></textarea>
+                    <button type="submit" class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 text-white px-12 py-5 rounded-2xl font-bold text-xl button-hover shimmer-effect shadow-2xl">
+                        <i class="fas fa-paper-plane mr-3"></i>Send Message
                     </button>
                 </form>
             </div>
@@ -759,51 +822,65 @@
     </section>
 
     <!-- Footer -->
-    <footer class="mt-16 py-8 bg-gradient-to-r from-sky-400 to-blue-600 text-white">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
+    <footer class="mt-20 py-12 bg-gradient-to-r from-purple-900 via-pink-900 to-red-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10">
                 <div class="text-center md:text-left">
-                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-gem text-white text-xl"></i>
+                    <div class="flex items-center justify-center md:justify-start space-x-3 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center animate-glow">
+                            <i class="fas fa-gem text-white text-2xl"></i>
                         </div>
-                        <span class="text-2xl font-bold">eShop</span>
+                        <span class="text-3xl font-bold gradient-text">eShop</span>
                     </div>
-                    <p class="text-white/80">Premium technology store with exceptional quality and service.</p>
+                    <p class="text-white/80 text-lg leading-relaxed">Premium technology store with exceptional quality and service.</p>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="hover:text-white/80">Home</a></li>
-                        <li><a href="#products" class="hover:text-white/80">Products</a></li>
-                        <li><a href="#features" class="hover:text-white/80">Features</a></li>
-                        <li><a href="#contact" class="hover:text-white/80">Contact</a></li>
+                    <h4 class="text-xl font-bold mb-6 text-purple-300">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-white/80 hover:text-white transition-colors duration-300 text-lg">Home</a></li>
+                        <li><a href="#products" class="text-white/80 hover:text-white transition-colors duration-300 text-lg">Products</a></li>
+                        <li><a href="#features" class="text-white/80 hover:text-white transition-colors duration-300 text-lg">Features</a></li>
+                        <li><a href="#contact" class="text-white/80 hover:text-white transition-colors duration-300 text-lg">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
-                    <ul class="space-y-2">
-                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Tech Street, NY 10012</li>
-                        <li><i class="fas fa-phone mr-2"></i>+1 (555) 123-4567</li>
-                        <li><i class="fas fa-envelope mr-2"></i>support@eshop.com</li>
+                    <h4 class="text-xl font-bold mb-6 text-purple-300">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-white/80 text-lg">
+                            <i class="fas fa-map-marker-alt mr-3 text-purple-300 text-xl"></i>123 Tech Street, NY 10012
+                        </li>
+                        <li class="flex items-center text-white/80 text-lg">
+                            <i class="fas fa-phone mr-3 text-purple-300 text-xl"></i>+1 (555) 123-4567
+                        </li>
+                        <li class="flex items-center text-white/80 text-lg">
+                            <i class="fas fa-envelope mr-3 text-purple-300 text-xl"></i>support@eshop.com
+                        </li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
-                    <div class="flex space-x-4 justify-center md:justify-start">
-                        <a href="#" class="hover:text-white/80"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="#" class="hover:text-white/80"><i class="fab fa-twitter text-xl"></i></a>
-                        <a href="#" class="hover:text-white/80"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="hover:text-white/80"><i class="fab fa-linkedin text-xl"></i></a>
+                    <h4 class="text-xl font-bold mb-6 text-purple-300">Follow Us</h4>
+                    <div class="flex space-x-6 justify-center md:justify-start">
+                        <a href="#" class="text-white/80 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white/80 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white/80 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-white/80 hover:text-white transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-white/20 mt-8 pt-8 text-center">
-                <p class="text-white/80">&copy; 2025 eShop. All rights reserved.</p>
+            <div class="border-t border-white/20 mt-12 pt-8 text-center">
+                <p class="text-white/80 text-lg">&copy; 2025 eShop. All rights reserved.</p>
             </div>
         </div>
     </footer>
